@@ -1,10 +1,38 @@
 ##用法
 
-	mkdir -p /opt/portainer
-	docker run -d -p 9000:9000 --label owner=portainer \
-	       --restart=always --name=ui \
-	       -v /var/run/docker.sock:/var/run/docker.sock \
-	       -v /opt/portainer:/data \
-	       portainer/portainer:1.15.5
+新建一个文件夹用于永久存储数据
+```
+rm -rf /opt/portainer/data
+mkdir -p /opt/portainer/data
+mkdir -p /opt/portainer/local-certs
+```
 
-	docker run -d   --name watchtower   -v /var/run/docker.sock:/var/run/docker.sock   v2tec/watchtower --cleanup ui
+SSL证书保护
+```
+mv ~/1_domain.crt /opt/portainer/local-certs/portainer.crt
+mv ~/2_domain.key /opt/portainer/local-certs/portainer.key
+```
+```
+docker run -d -p 9000:9000 \
+-v /opt/portainer/data:/data \
+-v /opt/portainer/local-certs:/certs \
+-v /var/run/docker.sock:/var/run/docker.sock \
+--label owner=portainer \
+--name ui \
+--restart=always \
+lihaixin/portainer -l owner=portainer \
+--ssl --sslcert /certs/portainer.crt --sslkey /certs/portainer.key
+```
+```
+docker run -d   --name watchtower   -v /var/run/docker.sock:/var/run/docker.sock   v2tec/watchtower --cleanup ui
+```
+
+快速部署
+
+```
+docker run -d -p 9000:9000 --label owner=portainer \
+--restart=always --name=ui \
+--label owner=portainer \
+-v /var/run/docker.sock:/var/run/docker.sock \
+portainer/portainer -l owner=portainer
+```
