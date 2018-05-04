@@ -11,6 +11,14 @@ SSL证书保护
 mv ~/1_domain.crt /opt/portainer/local-certs/portainer.crt
 mv ~/2_domain.key /opt/portainer/local-certs/portainer.key
 ```
+或者自签证书
+```
+cd /opt/portainer/local-certs
+openssl genrsa -out portainer.key 2048
+openssl ecparam -genkey -name secp384r1 -out portainer.key
+openssl req -new -x509 -sha256 -key portainer.key -out portainer.crt -days 3650
+```
+
 ```
 docker run -d -p 9000:9000 \
 -v /opt/portainer/data:/data \
