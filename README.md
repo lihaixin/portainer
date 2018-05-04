@@ -2,7 +2,6 @@
 
 新建一个文件夹用于永久存储数据
 ```
-rm -rf /opt/portainer/data
 mkdir -p /opt/portainer/data
 mkdir -p /opt/portainer/local-certs
 ```
