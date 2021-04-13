@@ -1,4 +1,4 @@
-FROM portainer/portainer:ce
+FROM portainer/portainer-ce
 MAINTAINER Haixin Lee <docker@lihaixin.name>
 LABEL owner=portainer
 VOLUME ["/data"]
