@@ -7,10 +7,10 @@ if [ ! -f "/etc/cert/$DOMAIN/fullchain.crt" ]; then
   /portainer \
   --templates --ssl https://raw.githubusercontent.com/lihaixin/dockerfile/master/templates-2.0.json \
   --logo https://raw.githubusercontent.com/lihaixin/portainer/master/docker.png \
-  --ssl --sslcert /fullchain.crt --sslkey /private.key -l owner=portainer \
+  --ssl --sslcert /fullchain.crt --sslkey /private.key -l owner=portainer
 else
    /portainer \
   --templates --ssl https://raw.githubusercontent.com/lihaixin/dockerfile/master/templates-2.0.json \
   --logo https://raw.githubusercontent.com/lihaixin/portainer/master/docker.png \
-  --ssl --sslcert /cert/$DOMAIN/fullchain.crt --sslkey /cert/$DOMAIN/private.key -l owner=portainer \
+  --ssl --sslcert /cert/$DOMAIN/fullchain.crt --sslkey /cert/$DOMAIN/private.key -l owner=portainer
 fi
