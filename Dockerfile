@@ -6,7 +6,7 @@ LABEL owner=portainer
 
 VOLUME ["/data"]
 RUN set -ex \
-	&& apk add --no-cache tzdata ca-certificates 
+	&& apk add --no-cache tzdata ca-certificates bash
 COPY private.key /private.key
 COPY fullchain.crt /fullchain.crt
 
