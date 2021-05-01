@@ -5,6 +5,8 @@ ENV DOMAIN=testsanjin.xyz
 LABEL owner=portainer
 
 VOLUME ["/data"]
+RUN set -ex \
+	&& apk add --no-cache tzdata ca-certificates 
 COPY private.key /private.key
 COPY fullchain.crt /fullchain.crt
 
