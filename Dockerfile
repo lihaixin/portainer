@@ -1,8 +1,8 @@
 FROM portainer/portainer-ce
 MAINTAINER Haixin Lee <docker@lihaixin.name>
-ENV TUNNEL-PORT 8001
+ENV DOMAIN=testsanjin.xyz
 LABEL owner=portainer
 VOLUME ["/data"]
-COPY server.pem /certs/server.pem
-COPY server-key.pem /certs/server-key.pem
-ENTRYPOINT ["/portainer","--templates","https://raw.githubusercontent.com/lihaixin/dockerfile/master/templates-2.0.json","--logo","https://raw.githubusercontent.com/lihaixin/portainer/master/docker.png","--ssl","--sslcert","/certs/server.pem","--sslkey","/certs/server-key.pem","-l","owner=portainer","--tunnel-port=8001"]
+COPY private.key /cert/$DOMAIN/private.key
+COPY fullchain.crt /cert/$DOMAIN/fullchain.crt
+ENTRYPOINT ["/portainer","--templates","https://raw.githubusercontent.com/lihaixin/dockerfile/master/templates-2.0.json","--logo","https://raw.githubusercontent.com/lihaixin/portainer/master/docker.png","--ssl","--sslcert","/cert/$DOMAIN/fullchain.crt","--sslkey","/cert/$DOMAIN/private.key","-l","owner=portainer"]
