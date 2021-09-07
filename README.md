@@ -6,7 +6,7 @@ docker run -d -p 9000:9000 \
 --label owner=portainer \
 --name ui \
 --restart=always \
-lihaixin/portainer -l owner=portainer \
+lihaixin/portainer:ce -l owner=portainer \
 --ssl --sslcert /certs/portainer.crt --sslkey /certs/portainer.key 
 
 更多参考请访问：
