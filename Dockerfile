@@ -1,4 +1,4 @@
-FROM portainer/portainer:latest
+FROM --platform=${TARGETPLATFORM} portainer/portainer:latest
 MAINTAINER Haixin Lee <docker@lihaixin.name>
 LABEL owner=portainer
 # ADD favicon.ico /ico
