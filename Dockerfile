@@ -1,4 +1,5 @@
-FROM portainer/portainer:latest
+FROM --platform=${TARGETPLATFORM} portainer/portainer:latest
 MAINTAINER Haixin Lee <docker@lihaixin.name>
+LABEL owner=portainer
 # ADD favicon.ico /ico
-ENTRYPOINT ["/portainer","--templates","https://raw.githubusercontent.com/lihaixin/dockerfile/master/templates.json","--logo","https://www.docker.com/sites/all/themes/docker/assets/images/brand-full.svg"]
+ENTRYPOINT ["/portainer","--templates","https://ghproxy.com/https://raw.githubusercontent.com/lihaixin/dockerfile/master/templates-2.0.json","--logo","https://ghproxy.com/https://raw.githubusercontent.com/lihaixin/portainer/master/docker.png","-l","owner=portainer"]
