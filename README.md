@@ -1,3 +1,8 @@
+## 构建
+```
+docker buildx build --platform linux/arm64,linux/amd64 -t lihaixin/portainer . --push
+```
+
 ## 用法
 
 新建一个文件夹用于永久存储数据
