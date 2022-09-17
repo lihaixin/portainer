@@ -14,9 +14,9 @@ docker run -d \
 lihaixin/portainer:ce \
 ```
 
-##
+## 访问
 
-https://<ip>:9443
+https://< ip >:9443
 
 更多参考请访问：
 
