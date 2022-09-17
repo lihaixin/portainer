@@ -6,12 +6,17 @@ docker buildx build --platform linux/arm64,linux/amd64 -t lihaixin/portainer:ce 
 ## 用法
 
 ```
-docker run -d -p 9000:9000 \
+docker run -d \
+--net=host \
 -v /var/run/docker.sock:/var/run/docker.sock \
 --name ui \
 --restart=always \
 lihaixin/portainer:ce \
 ```
+
+##
+
+https://<ip>:9443
 
 更多参考请访问：
 
