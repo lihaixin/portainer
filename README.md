@@ -9,6 +9,7 @@ docker buildx build --platform linux/arm64,linux/amd64 -t lihaixin/portainer:ce 
 docker run -d \
 --net=host \
 -v /var/run/docker.sock:/var/run/docker.sock \
+-v portainer_data:/data \
 --name ui \
 --restart=always \
 lihaixin/portainer:ce \
