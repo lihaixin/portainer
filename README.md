@@ -13,7 +13,7 @@ docker buildx build --platform linux/arm64,linux/amd64 -t lihaixin/portainer:ce 
 ## 用法
 
 ```
-docker run -d \
+docker run -itd \
 --net=host \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v portainer_data:/data \
