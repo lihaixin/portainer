@@ -1,6 +1,6 @@
 ## 构建
 ```
-docker buildx build --platform linux/arm64,linux/amd64 -t lihaixin/portainer:ce . --push
+docker buildx build --platform linux/arm64,linux/amd64 -t lihaixin/portainer:ce https://github.com/lihaixin/portainer.git --push
 ```
 
 # portainer
