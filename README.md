@@ -12,6 +12,7 @@ docker buildx build --platform linux/arm64,linux/amd64 -t lihaixin/portainer:ce 
 
 ## 用法
 
+### CLI
 ```
 docker run -d \
 --net=host \
@@ -22,9 +23,37 @@ docker run -d \
 lihaixin/portainer:ce \
 ```
 
+### docker-compose
+
+```
+version: "3.7"
+services:
+  nps:
+    image: lihaixin/portainer:ce
+    container_name: ui
+    hostname: ui
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - portainer_data:/data                         # 永久存放portainer数据位置
+      - /var/run/docker.sock:/var/run/docker.sock    # docker.sock
+volumes:
+  portainer_data:
+```
+
 ## 访问
 
 https://< ip >:9443
+
+## 升级和备份
+
+升级
+```
+docker pull lihaixin/portainer:ce
+然后重启容器
+```
+备份；
+通过界面导出数据，然后在新主机上安装，开始初始化导入数据
 
 更多参考请访问：
 
