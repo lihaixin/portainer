@@ -20,7 +20,7 @@ docker run -d \
 -v portainer_data:/data \
 --name ui \
 --restart=always \
-lihaixin/portainer:ce \
+lihaixin/portainer:ce
 ```
 
 ### docker-compose
