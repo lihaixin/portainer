@@ -21,6 +21,9 @@ docker run -d \
 --name ui \
 --restart=always \
 lihaixin/portainer:ce
+
+
+docker run -it --rm lihaixin/portainer:ce --help
 ```
 
 ### docker-compose
