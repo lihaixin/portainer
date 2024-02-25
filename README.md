@@ -9,7 +9,7 @@
 ```
 docker buildx build --platform linux/arm64,linux/amd64 -t lihaixin/portainer:ce https://github.com/lihaixin/portainer.git --push
 
-docker buildx build -f Dockerfile.2.19.1 --platform linux/arm64,linux/amd64 -t lihaixin/portainer:2.19.1 --push
+docker buildx build -f Dockerfile.2.19.1 --platform linux/arm64,linux/amd64 -t lihaixin/portainer:2.19.1 . --push
 ```
 
 ## 用法
