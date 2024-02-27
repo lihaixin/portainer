@@ -7,8 +7,10 @@
 
 ## 构建
 ```
+最新版构建
 docker buildx build --platform linux/arm64,linux/amd64 -t lihaixin/portainer:ce https://github.com/lihaixin/portainer.git --push
 
+汉化版构建
 docker buildx build -f Dockerfile.2.19.1 --platform linux/arm64,linux/amd64 -t lihaixin/portainer:2.19.1 . --push
 ```
 
@@ -34,13 +36,13 @@ docker run -d --name watchtower \
 containrrr/watchtower --cleanup ui
 ```
 
-### docker-compose
+### docker-compose 汉化版使用
 
 ```
 version: "3.7"
 services:
-  nps:
-    image: lihaixin/portainer:ce
+  portainer:
+    image: lihaixin/portainer:2.19.1
     container_name: ui
     hostname: ui
     restart: unless-stopped
