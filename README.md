@@ -32,6 +32,7 @@ docker run -it --rm lihaixin/portainer:ce --help
 
 docker run -d --name watchtower \
 --restart always \
+--label owner=portainer \
 -v /var/run/docker.sock:/var/run/docker.sock \
 containrrr/watchtower --cleanup ui
 ```
